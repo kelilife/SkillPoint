@@ -36,12 +36,12 @@ namespace KeLi.SkillPoint.Tests
         internal static List<int> Uv5s => new List<int>();
 
         /// <summary>
-        ///     Writeonly property, no area can read it.
+        ///     Write only property, no area can read it.
         /// </summary>
         internal static List<int> Uv6s { private get; set; }
 
         /// <summary>
-        ///     Writeonly property, init it and the class inner can read it.
+        ///     Write only property, init it and the class inner can read it.
         /// </summary>
         internal static List<int> Uv7s { private get; set; } = new List<int>();
 
@@ -94,7 +94,7 @@ namespace KeLi.SkillPoint.Tests
     }
 
     /// <summary>
-    ///     Propery access test class.
+    ///     Property access test class.
     /// </summary>
     internal class PropertyTestClass
     {

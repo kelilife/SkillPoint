@@ -6,9 +6,9 @@ namespace KeLi.SkillPoint.Usages
 {
     internal class DynamicDictionaryUsage : DynamicObject, IAnalyzers
     {
-        private readonly Dictionary<string, object> _dict = new Dictionary<string, object>();
+        private readonly Dictionary<string, object> dict = new Dictionary<string, object>();
 
-        internal int Count => _dict.Count;
+        internal int Count => dict.Count;
 
         public void ShowResult()
         {
@@ -18,12 +18,12 @@ namespace KeLi.SkillPoint.Usages
 
         public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
-            return _dict.TryGetValue(binder.Name.ToLower(), out result);
+            return dict.TryGetValue(binder.Name.ToLower(), out result);
         }
 
         public override bool TrySetMember(SetMemberBinder binder, object value)
         {
-            _dict[binder.Name.ToLower()] = value;
+            dict[binder.Name.ToLower()] = value;
 
             return true;
         }

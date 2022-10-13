@@ -15,22 +15,22 @@ namespace KeLi.SkillPoint.Problems
 
         internal class Xyz
         {
-            private readonly XyzProxy _proxy;
+            private readonly XyzProxy proxy;
 
             internal Xyz(double x, double y, double z)
             {
-                _proxy = new XyzProxy(x, y, z);
+                proxy = new XyzProxy(x, y, z);
             }
 
-            internal double X => _proxy.Px;
+            internal double X => proxy.Px;
 
-            internal double Y => _proxy.Py;
+            internal double Y => proxy.Py;
 
-            internal double Z => _proxy.Pz;
+            internal double Z => proxy.Pz;
 
             public override string ToString()
             {
-                return _proxy.ToString();
+                return proxy.ToString();
             }
         }
 

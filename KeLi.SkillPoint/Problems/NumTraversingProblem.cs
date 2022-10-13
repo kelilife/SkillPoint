@@ -6,7 +6,7 @@ namespace KeLi.SkillPoint.Problems
 {
     internal class NumTraversingProblem : IAnalyzers
     {
-        private static int _index;
+        private static int index;
 
         public void ShowResult()
         {
@@ -36,7 +36,7 @@ namespace KeLi.SkillPoint.Problems
             Loop loop = GetData;
 
             for (var i = 0; i < 10; i++)
-                results.Add(loop(ref _index));
+                results.Add(loop(ref index));
 
             return results;
         }

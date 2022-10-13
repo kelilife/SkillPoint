@@ -21,16 +21,16 @@ namespace KeLi.SkillPoint.Usages
 
         private abstract class BaseForm
         {
-            protected Compontent _compontent;
+            protected Compontent compontent;
 
             public void Show()
             {
-                _compontent.StartListening();
+                compontent.StartListening();
             }
 
             public void Close()
             {
-                _compontent.StopListening();
+                compontent.StopListening();
             }
 
             protected abstract void Initial();
@@ -88,54 +88,59 @@ namespace KeLi.SkillPoint.Usages
                         if (!eventInfo.Name.Equals(nameof(ContentInput)))
                             continue;
 
-                        var eventType = eventInfo.DeclaringType;
-                        var fieldInfo = eventType.GetField(eventInfo.Name, Public | NonPublic | Instance | Static);
-
-                        fieldInfo?.SetValue(this, null);
+                        eventInfo.DeclaringType?.GetField(eventInfo.Name, Public | NonPublic | Instance | Static)?.SetValue(this, null);
                     }
                 }
 
                 public void OnContentInput(object sender, string e)
                 {
-                    if (e == "exit")
-                        StopListening();
-
-                    else if (e == "base")
-                        ContentInput -= OnContentInput;
-
-                    else
-                        Console.WriteLine($"You input {e} on {nameof(BaseForm)}.");
+                    switch (e)
+                    {
+                        case "exit":
+                            StopListening();
+                            break;
+                        case "base":
+                            ContentInput -= OnContentInput;
+                            break;
+                        default:
+                            Console.WriteLine($"You input {e} on {nameof(BaseForm)}.");
+                            break;
+                    }
                 }
             }
         }
 
         private class TestForm : BaseForm
         {
-            private CustomControl _control;
+            private CustomControl control;
 
             public TestForm()
             {
                 Initial();
             }
 
-            protected override void Initial()
+            protected sealed override void Initial()
             {
-                _compontent = new Compontent();
-                _control = new CustomControl();
-                _control.ContentInput += OnContentInput;
-                _compontent.Add(_control);
+                compontent = new Compontent();
+                control = new CustomControl();
+                control.ContentInput += OnContentInput;
+                compontent.Add(control);
             }
 
             private void OnContentInput(object sender, string e)
             {
-                if (e == "exit")
-                    _control.StopListening();
-
-                else if (e == "test")
-                    _control.ContentInput -= OnContentInput;
-
-                else
-                    Console.WriteLine($"You input {e} on {nameof(TestForm)}.");
+                switch (e)
+                {
+                    case "exit":
+                        control.StopListening();
+                        break;
+                    case "test":
+                        control.ContentInput -= OnContentInput;
+                        break;
+                    default:
+                        Console.WriteLine($"You input {e} on {nameof(TestForm)}.");
+                        break;
+                }
             }
         }
     }

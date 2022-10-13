@@ -8,7 +8,7 @@ namespace KeLi.SkillPoint.Problems
     /// </summary>
     internal class FibonacciSequenceProblem : IAnalyzers
     {
-        private static readonly ulong[] _cache = { 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 };
+        private static readonly ulong[] cache = { 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 };
 
         /// <summary>
         ///     Shows the result.
@@ -154,8 +154,8 @@ namespace KeLi.SkillPoint.Problems
         /// <returns></returns>
         internal static BigInteger GetBase0(int index)
         {
-            if (index < _cache.Length - 1)
-                return _cache[index];
+            if (index < cache.Length - 1)
+                return cache[index];
 
             if (index % 2 == 0)
             {
