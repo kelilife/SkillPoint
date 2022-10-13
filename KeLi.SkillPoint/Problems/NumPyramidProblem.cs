@@ -2,7 +2,7 @@
 
 namespace KeLi.SkillPoint.Problems
 {
-    internal class NumPyramidProblem : IResult
+    internal class NumPyramidProblem : IAnalyzers
     {
         public void ShowResult()
         {

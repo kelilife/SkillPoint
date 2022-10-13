@@ -9,7 +9,7 @@ using BenchmarkDotNet.Running;
 
 namespace KeLi.SkillPoint.App.Thinking
 {
-    public class LinqQueryPerformanceTest : IResult
+    public class LinqQueryPerformanceTest : IAnalyzers
     {
         private const string Test = "Hello";
 

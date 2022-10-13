@@ -1,6 +1,6 @@
 ﻿namespace KeLi.SkillPoint.Problems
 {
-    internal class DataExchangeProblem : IResult
+    internal class DataExchangeProblem : IAnalyzers
     {
         public void ShowResult()
         {

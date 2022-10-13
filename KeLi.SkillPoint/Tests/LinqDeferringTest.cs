@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace KeLi.SkillPoint.Tests
 {
-    internal class LinqDeferringTest : IResult
+    internal class LinqDeferringTest : IAnalyzers
     {
         public void ShowResult()
         {

@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace KeLi.SkillPoint.Problems
 {
-    internal class RegexProblem : IResult
+    internal class RegexProblem : IAnalyzers
     {
         public void ShowResult()
         {

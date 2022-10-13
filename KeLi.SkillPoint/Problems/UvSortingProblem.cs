@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace KeLi.SkillPoint.Problems
 {
-    internal class UvSortingProblem : IResult
+    internal class UvSortingProblem : IAnalyzers
     {
         public void ShowResult()
         {

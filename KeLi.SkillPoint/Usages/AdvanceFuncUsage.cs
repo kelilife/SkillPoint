@@ -2,7 +2,7 @@
 
 namespace KeLi.SkillPoint.Usages
 {
-    internal class AdvanceFuncUsage : IResult
+    internal class AdvanceFuncUsage : IAnalyzers
     {
         public void ShowResult()
         {

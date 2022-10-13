@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace KeLi.SkillPoint.Usages
 {
-    internal class PathUsage : IResult
+    internal class PathUsage : IAnalyzers
     {
         public void ShowResult()
         {

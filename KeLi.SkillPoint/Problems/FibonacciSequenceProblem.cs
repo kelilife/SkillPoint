@@ -6,7 +6,7 @@ namespace KeLi.SkillPoint.Problems
     /// <summary>
     ///     Fibonacci sequence.
     /// </summary>
-    internal class FibonacciSequenceProblem : IResult
+    internal class FibonacciSequenceProblem : IAnalyzers
     {
         private static readonly ulong[] _cache = { 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 };
 

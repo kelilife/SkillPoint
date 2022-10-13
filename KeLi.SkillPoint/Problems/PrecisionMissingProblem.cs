@@ -2,7 +2,7 @@
 
 namespace KeLi.SkillPoint.Problems
 {
-    internal class PrecisionMissingProblem : IResult
+    internal class PrecisionMissingProblem : IAnalyzers
     {
         public void ShowResult()
         {

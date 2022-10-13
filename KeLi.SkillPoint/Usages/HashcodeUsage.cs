@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace KeLi.SkillPoint.Usages
 {
-    internal class HashcodeUsage : IResult
+    internal class HashcodeUsage : IAnalyzers
     {
         public void ShowResult()
         {

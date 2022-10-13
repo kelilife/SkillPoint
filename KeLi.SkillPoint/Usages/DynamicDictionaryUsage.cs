@@ -4,7 +4,7 @@ using System.Dynamic;
 
 namespace KeLi.SkillPoint.Usages
 {
-    internal class DynamicDictionaryUsage : DynamicObject, IResult
+    internal class DynamicDictionaryUsage : DynamicObject, IAnalyzers
     {
         private readonly Dictionary<string, object> _dict = new Dictionary<string, object>();
 

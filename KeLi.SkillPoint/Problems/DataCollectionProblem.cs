@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace KeLi.SkillPoint.Problems
 {
-    internal class DataCollectionProblem : IResult
+    internal class DataCollectionProblem : IAnalyzers
     {
         public void ShowResult()
         {

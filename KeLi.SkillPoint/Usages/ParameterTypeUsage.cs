@@ -2,7 +2,7 @@
 
 namespace KeLi.SkillPoint.Usages
 {
-    internal class ParameterTypeUsage : IResult
+    internal class ParameterTypeUsage : IAnalyzers
     {
         public void ShowResult()
         {

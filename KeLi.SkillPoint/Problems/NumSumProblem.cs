@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace KeLi.SkillPoint.Problems
 {
-    internal class NumSumProblem : IResult
+    internal class NumSumProblem : IAnalyzers
     {
         public void ShowResult()
         {

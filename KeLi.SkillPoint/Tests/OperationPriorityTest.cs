@@ -2,7 +2,7 @@
 
 namespace KeLi.SkillPoint.Tests
 {
-    internal class OperationPriorityTest : IResult
+    internal class OperationPriorityTest : IAnalyzers
     {
         public void ShowResult()
         {

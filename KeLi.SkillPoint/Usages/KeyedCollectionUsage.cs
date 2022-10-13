@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace KeLi.SkillPoint.Usages
 {
-    internal class KeyedCollectionUsage : IResult
+    internal class KeyedCollectionUsage : IAnalyzers
     {
         public void ShowResult()
         {

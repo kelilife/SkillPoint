@@ -6,7 +6,7 @@ namespace KeLi.SkillPoint.Tests
     /// <summary>
     ///     Property study.
     /// </summary>
-    internal class PropertyTest : IResult
+    internal class PropertyTest : IAnalyzers
     {
         /// <summary>
         ///     Readonly property, the class inner can modify it.

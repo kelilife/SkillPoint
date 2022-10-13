@@ -2,7 +2,7 @@
 
 namespace KeLi.SkillPoint.Usages
 {
-    internal class BitOperatorUsage : IResult
+    internal class BitOperatorUsage : IAnalyzers
     {
         public void ShowResult()
         {

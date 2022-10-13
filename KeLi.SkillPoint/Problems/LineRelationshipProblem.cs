@@ -2,7 +2,7 @@
 
 namespace KeLi.SkillPoint.Problems
 {
-    internal class LineRelationshipProblem : IResult
+    internal class LineRelationshipProblem : IAnalyzers
     {
         public void ShowResult()
         {

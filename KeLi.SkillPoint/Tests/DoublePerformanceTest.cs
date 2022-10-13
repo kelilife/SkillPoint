@@ -3,7 +3,7 @@ using BenchmarkDotNet.Running;
 
 namespace KeLi.SkillPoint.Tests
 {
-    public class DoublePerformanceTest : IResult
+    public class DoublePerformanceTest : IAnalyzers
     {
         public void ShowResult()
         {

@@ -1,6 +1,6 @@
 ﻿namespace KeLi.SkillPoint
 {
-    internal interface IResult
+    internal interface IAnalyzers
     {
         void ShowResult();
     }

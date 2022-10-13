@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace KeLi.SkillPoint.Usages
 {
-    internal class JsonUsage : IResult
+    internal class JsonUsage : IAnalyzers
     {
         public void ShowResult()
         {
@@ -45,8 +45,6 @@ namespace KeLi.SkillPoint.Usages
                     return result;
                 }
             }
-
-            return result;
         }
     }
 }

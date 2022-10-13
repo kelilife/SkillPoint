@@ -5,7 +5,7 @@ using static System.Reflection.BindingFlags;
 
 namespace KeLi.SkillPoint.Usages
 {
-    internal class EventUsage : IResult
+    internal class EventUsage : IAnalyzers
     {
         public void ShowResult()
         {

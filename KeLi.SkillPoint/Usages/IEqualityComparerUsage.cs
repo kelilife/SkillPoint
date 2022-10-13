@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace KeLi.SkillPoint.Usages
 {
-    internal class IEqualityComparerUsage : IResult
+    internal class IEqualityComparerUsage : IAnalyzers
     {
         public void ShowResult()
         {

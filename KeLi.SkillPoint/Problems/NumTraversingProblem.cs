@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace KeLi.SkillPoint.Problems
 {
-    internal class NumTraversingProblem : IResult
+    internal class NumTraversingProblem : IAnalyzers
     {
         private static int _index;
 

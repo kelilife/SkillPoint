@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace KeLi.SkillPoint.Usages
 {
-    internal class SemaphoreUsage : IResult
+    internal class SemaphoreUsage : IAnalyzers
     {
         private static readonly Semaphore _semaphore = new Semaphore(5, 15);
 

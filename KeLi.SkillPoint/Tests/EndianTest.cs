@@ -2,7 +2,7 @@
 
 namespace KeLi.SkillPoint.Tests
 {
-    internal class EndianTest : IResult
+    internal class EndianTest : IAnalyzers
     {
         public void ShowResult()
         {

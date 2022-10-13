@@ -9,7 +9,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>KeLi.SkillPoint</RootNamespace>
-    <AssemblyName>KeLi.SkillPoint</AssemblyName>
+    <AssemblyName>SkillPoint</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -165,7 +165,7 @@
     <Compile Include="Problems\DataCollectionProblem.cs" />
     <Compile Include="Usages\SealedKeywordUsage.cs" />
     <Compile Include="Tests\PropertyTest.cs" />
-    <Compile Include="IResult.cs" />
+    <Compile Include="IAnalyzers.cs" />
     <Compile Include="Problems\DoubleDangerProblem.cs" />
     <Compile Include="Tests\DoublePerformanceTest.cs" />
     <Compile Include="Usages\IEqualityComparerUsage.cs" />

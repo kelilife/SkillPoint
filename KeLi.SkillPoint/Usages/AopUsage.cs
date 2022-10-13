@@ -5,7 +5,7 @@ using System.Runtime.Remoting.Proxies;
 
 namespace KeLi.SkillPoint.Usages
 {
-    internal class AopUsage : IResult
+    internal class AopUsage : IAnalyzers
     {
         public void ShowResult()
         {

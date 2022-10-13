@@ -2,7 +2,7 @@
 
 namespace KeLi.SkillPoint.Problems
 {
-    internal class DoubleDangerProblem : IResult
+    internal class DoubleDangerProblem : IAnalyzers
     {
         public void ShowResult()
         {

@@ -2,7 +2,7 @@
 
 namespace KeLi.SkillPoint.Usages
 {
-    internal class CustomerFormatUsage : IResult, IFormatProvider, ICustomFormatter
+    internal class CustomerFormatUsage : IAnalyzers, IFormatProvider, ICustomFormatter
     {
         public string Format(string format, object arg, IFormatProvider provider)
         {
