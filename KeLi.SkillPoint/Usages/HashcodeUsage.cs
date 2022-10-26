@@ -7,24 +7,25 @@ namespace KeLi.SkillPoint.Usages
     {
         public void ShowResult()
         {
-            const int num = 123456789;
-            var pointA = new Point(1, 2);
-            var pointB = new Point(1, 4);
-            var dic = new Dictionary<object, int>();
+            const int number = 123456789;
 
-            Console.WriteLine(num.GetHashCode());
+            var point1 = new Point(1, 2);
+            var point2 = new Point(1, 4);
+            var dict = new Dictionary<object, int>();
+
+            Console.WriteLine(number.GetHashCode());
             Console.WriteLine();
 
-            dic.Add(pointA, 1);
-            dic.Add(pointB, 2);
+            dict.Add(point1, 1);
+            dict.Add(point2, 2);
 
-            Console.WriteLine(dic[new Point(1, 2)]);
+            Console.WriteLine(dict[new Point(1, 2)]);
             Console.WriteLine();
-            Console.WriteLine(dic.ContainsKey(new Point(1, 2)));
+            Console.WriteLine(dict.ContainsKey(new Point(1, 2)));
             Console.WriteLine();
-            Console.WriteLine(pointA.GetHashCode());
+            Console.WriteLine(point1.GetHashCode());
             Console.WriteLine();
-            Console.WriteLine(pointB.GetHashCode());
+            Console.WriteLine(point2.GetHashCode());
             Console.WriteLine();
         }
 

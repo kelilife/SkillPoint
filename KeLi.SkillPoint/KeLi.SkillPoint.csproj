@@ -24,6 +24,7 @@
     <DefineConstants>TRACE;DEBUG;CONDITION</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>10</LangVersion>
     <DocumentationFile>
     </DocumentationFile>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -36,6 +37,7 @@
     <DefineConstants>TRACE;CONDITION</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>10</LangVersion>
     <DocumentationFile>
     </DocumentationFile>
   </PropertyGroup>
@@ -52,35 +54,26 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAnalyzers.cs" />
     <Compile Include="Problems\DataExchangeProblem.cs" />
     <Compile Include="Problems\LineRelationshipProblem.cs" />
-    <Compile Include="Problems\NumPyramidProblem.cs" />
-    <Compile Include="Problems\NumSumProblem.cs" />
+    <Compile Include="Problems\NumberPyramidProblem.cs" />
     <Compile Include="Problems\RegexProblem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usages\AopUsage.cs" />
-    <Compile Include="Usages\BitOperatorUsage.cs" />
-    <Compile Include="Usages\DynamicDictionaryUsage.cs" />
-    <Compile Include="Problems\DataCollectionProblem.cs" />
     <Compile Include="Usages\SealedKeywordUsage.cs" />
     <Compile Include="Tests\PropertyTest.cs" />
-    <Compile Include="IAnalyzers.cs" />
-    <Compile Include="Problems\DoubleDangerProblem.cs" />
-    <Compile Include="Usages\IEqualityComparerUsage.cs" />
-    <Compile Include="Tests\LinqDeferringTest.cs" />
-    <Compile Include="Usages\CustomerFormatUsage.cs" />
+    <Compile Include="Usages\EqualityComparerInterfaceUsage.cs" />
+    <Compile Include="Tests\LinqQueryTest.cs" />
     <Compile Include="Usages\EventUsage.cs" />
-    <Compile Include="Usages\AdvanceFuncUsage.cs" />
     <Compile Include="Usages\HashcodeUsage.cs" />
-    <Compile Include="Usages\JsonUsage.cs" />
     <Compile Include="Usages\OperatorUsage.cs" />
     <Compile Include="Usages\ParameterTypeUsage.cs" />
     <Compile Include="Usages\SemaphoreUsage.cs" />
     <Compile Include="Tests\EndianTest.cs" />
     <Compile Include="Problems\FibonacciSequenceProblem.cs" />
-    <Compile Include="Problems\NumTraversingProblem.cs" />
-    <Compile Include="Usages\PathUsage.cs" />
+    <Compile Include="Problems\NumberIteratingProblem.cs" />
     <Compile Include="Tests\OperationPriorityTest.cs" />
     <Compile Include="Usages\KeyedCollectionUsage.cs" />
     <Compile Include="Problems\UvSortingProblem.cs" />

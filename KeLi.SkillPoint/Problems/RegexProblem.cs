@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -9,55 +8,25 @@ namespace KeLi.SkillPoint.Problems
     {
         public void ShowResult()
         {
-            CreateMaxNameNum("[Hello]-1", "-", new[] { "[Hello]-1", "[Hello]", "(Hello)-3" });
-            MatchNums("333abc");
+            MatchNumbers("333abc");
             ContainsBirthday("19221123");
         }
 
-        internal static List<int> MatchNums(string testStr)
+        internal static List<int> MatchNumbers(string text)
         {
-            return Regex.Matches(testStr, @"\d+").Cast<Match>().Select(s => int.Parse(s.Value)).ToList();
+            return Regex.Matches(text, @"\d+").Cast<Match>().Select(s => int.Parse(s.Value)).ToList();
         }
 
-        internal static bool ContainsBirthday(string pwd)
+        internal static bool ContainsBirthday(string password)
         {
-            var reg1 = new Regex(@"\d{4}");
-            var reg2 = new Regex(@"\d{3}");
-            var reg3 = new Regex(@"\d{2}");
+            var regex1 = new Regex(@"\d{4}");
+            var regex2 = new Regex(@"\d{3}");
+            var regex3 = new Regex(@"\d{2}");
+            var flag1 = regex1.IsMatch(password) && !regex1.Match(password).Value.Contains("000");
+            var flag2 = regex2.IsMatch(password) && !regex2.Match(password).Value.Contains("00");
+            var flag3 = regex3.IsMatch(password) && !regex3.Match(password).Value.Contains("0");
 
-            var m1 = reg1.IsMatch(pwd) && !reg1.Match(pwd).Value.Contains("000");
-            var m2 = reg2.IsMatch(pwd) && !reg2.Match(pwd).Value.Contains("00");
-            var m3 = reg3.IsMatch(pwd) && !reg3.Match(pwd).Value.Contains("0");
-
-            return m1 || m2 || m3;
-        }
-
-        internal static string CreateMaxNameNum(string viewName, string seperateChar, string[] viewNames)
-        {
-            var baseReg = new Regex($@"^(.+){seperateChar}(\d+)$");
-            var rawViewName = viewName;
-
-            if (baseReg.IsMatch(viewName))
-            {
-                // Group length is 3, first item is ifself.
-                rawViewName = baseReg.Match(viewName).Groups[1].Value;
-            }
-
-            if (!viewNames.Any(v => v == rawViewName))
-                return rawViewName;
-
-            var mainPattern = rawViewName.Replace("(", @"\(");
-
-            mainPattern = mainPattern.Replace(")", @"\)");
-            mainPattern = mainPattern.Replace("[", @"\[");
-            mainPattern = mainPattern.Replace("]", @"\]");
-
-            var newRegex = new Regex($@"^({mainPattern}){seperateChar}(\d+)$");
-            var patternNames = viewNames.Where(w => newRegex.IsMatch(w));
-            var maxNum = patternNames.Select(s => newRegex.Match(s).Groups[2].Value).Max(Convert.ToInt32);
-            var result = $"{rawViewName}{seperateChar}1";
-
-            return maxNum == 0 ? result : Regex.Replace(result, @"\d+$", (maxNum + 1).ToString());
+            return flag1 || flag2 || flag3;
         }
     }
 }

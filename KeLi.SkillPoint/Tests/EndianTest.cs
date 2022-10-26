@@ -1,15 +1,21 @@
 ﻿using System;
+using System.Linq;
 
 namespace KeLi.SkillPoint.Tests
 {
-    internal class EndianTest : IAnalyzers
+    internal class EndianTest
     {
         public void ShowResult()
         {
-            var chts = BitConverter.GetBytes(0x1020);
-            var endian = chts[0] == 0x10 ? "BigEndian" : "LittleEndian";
+            var result = string.Empty;
 
-            Console.WriteLine(endian);
+            if (BitConverter.GetBytes(0x1020).First() != 0x10)
+                result = "LittleEndian";
+
+            else
+                result = "BigEndian";
+
+            Console.WriteLine(result);
             Console.WriteLine();
         }
     }

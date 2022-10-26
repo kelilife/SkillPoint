@@ -5,7 +5,7 @@ namespace KeLi.SkillPoint.Usages
 {
     internal class SemaphoreUsage : IAnalyzers
     {
-        private static readonly Semaphore semaphore = new Semaphore(5, 15);
+        private static readonly Semaphore semaphore = new(5, 15);
 
         public void ShowResult()
         {
@@ -23,7 +23,9 @@ namespace KeLi.SkillPoint.Usages
 
             Console.WriteLine("{0} goes to the bathroom, the time is: {1}", obj, DateTime.Now);
             Console.WriteLine();
+
             Thread.Sleep(2000);
+            
             Console.WriteLine("{0} goes to the bathroom, the time is: {1}", obj, DateTime.Now);
             Console.WriteLine();
 

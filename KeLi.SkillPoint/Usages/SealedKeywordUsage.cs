@@ -4,25 +4,23 @@ namespace KeLi.SkillPoint.Usages
 {
     internal class SealedKeywordUsage
     {
-        private class A
+        private class Fruit
         {
             protected virtual string Name { get; set; }
 
-            protected virtual void DoSth()
+            protected virtual void Eat()
             {
-                Console.WriteLine("Hello, A!");
+                Console.WriteLine(nameof(Fruit));
             }
         }
 
-        // 'sealed' keyword to protect class 'B' and don't override members.
-        private sealed class B : A
+        private sealed class Apple : Fruit
         {
             protected override string Name { get; set; }
 
-            // The 'sealed' keyword be used to protect overrided method.
-            protected override void DoSth()
+            protected override void Eat()
             {
-                Console.WriteLine("Hello, B!");
+                Console.WriteLine(nameof(Apple));
             }
         }
     }

@@ -9,10 +9,10 @@ namespace KeLi.SkillPoint.Usages
     {
         public void ShowResult()
         {
-            var cmd = Console.ReadLine();
+            var text = Console.ReadLine();
             var form = new TestForm();
 
-            if(cmd == "show")
+            if(text == "Show")
                 form.Show();
 
             else
@@ -21,91 +21,83 @@ namespace KeLi.SkillPoint.Usages
 
         private abstract class BaseForm
         {
-            protected Compontent compontent;
+            protected Component component;
 
             public void Show()
             {
-                compontent.StartListening();
+                component.StartListening();
             }
 
             public void Close()
             {
-                compontent.StopListening();
+                component.StopListening();
             }
 
             protected abstract void Initial();
+        }
 
-            protected sealed class Compontent : List<CustomControl>
+        protected sealed class Component : List<CustomControl>
+        {
+            public void StartListening()
             {
-                public void StartListening()
+                foreach (var control in this)
                 {
-                    foreach (var control in this)
-                    {
-                        if (control is CustomControl customControl)
-                        {
-                            // If you want call this, please call this before the 'WaitInput' method.
-                            customControl.ContentInput += customControl.OnContentInput;
+                    // If you want call this, please call this before the 'WaitInput' method.
+                    control.ContentInput += control.OnContentInput;
 
-                            // If call the 'WaitInput', cannot add any method for event after this.
-                            customControl.StartListening();
-                        }
-                    }
-                }
-
-                public void StopListening()
-                {
-                    foreach (var control in this)
-                    {
-                        if (!(control is CustomControl customControl))
-                            continue;
-
-                        customControl.StopListening();
-                    }
+                    // If call the 'WaitInput', cannot add any method for event after this.
+                    control.StartListening();
                 }
             }
 
-            protected class CustomControl
+            public void StopListening()
             {
-                public event EventHandler<string> ContentInput;
+                foreach (var control in this)
+                    control.StopListening();
+            }
+        }
 
-                public void StartListening()
+        protected class CustomControl
+        {
+            public event EventHandler<string> ContentInput;
+
+            public void StartListening()
+            {
+                while (true)
                 {
-                    while (true)
-                    {
-                        if (ContentInput is null)
-                            return;
+                    if (ContentInput is null)
+                        return;
 
-                        ContentInput.Invoke(this, Console.ReadLine());
-                    }
+                    ContentInput.Invoke(this, Console.ReadLine());
                 }
+            }
 
-                public void StopListening()
+            public void StopListening()
+            {
+                var eventInfos = typeof(CustomControl).GetEvents(Public | NonPublic | Instance | Static);
+
+                foreach (var eventInfo in eventInfos)
                 {
-                    var eventInfos = typeof(CustomControl).GetEvents(Public | NonPublic | Instance | Static);
+                    if (!eventInfo.Name.Equals(nameof(ContentInput)))
+                        continue;
 
-                    foreach (var eventInfo in eventInfos)
-                    {
-                        if (!eventInfo.Name.Equals(nameof(ContentInput)))
-                            continue;
-
-                        eventInfo.DeclaringType?.GetField(eventInfo.Name, Public | NonPublic | Instance | Static)?.SetValue(this, null);
-                    }
+                    eventInfo.DeclaringType?.GetField(eventInfo.Name, Public | NonPublic | Instance | Static)?.SetValue(this, null);
                 }
+            }
 
-                public void OnContentInput(object sender, string e)
+            public void OnContentInput(object sender, string e)
+            {
+                switch (e)
                 {
-                    switch (e)
-                    {
-                        case "exit":
-                            StopListening();
-                            break;
-                        case "base":
-                            ContentInput -= OnContentInput;
-                            break;
-                        default:
-                            Console.WriteLine($"You input {e} on {nameof(BaseForm)}.");
-                            break;
-                    }
+                    case "Exit":
+                        StopListening();
+                        break;
+                    case "Base":
+                        ContentInput -= OnContentInput;
+                        break;
+                    default:
+                        Console.WriteLine($"You input {e} on {nameof(BaseForm)}.");
+                        break;
                 }
             }
         }
@@ -121,20 +113,20 @@ namespace KeLi.SkillPoint.Usages
 
             protected sealed override void Initial()
             {
-                compontent = new Compontent();
+                component = new Component();
                 control = new CustomControl();
                 control.ContentInput += OnContentInput;
-                compontent.Add(control);
+                component.Add(control);
             }
 
             private void OnContentInput(object sender, string e)
             {
                 switch (e)
                 {
-                    case "exit":
+                    case "Exit":
                         control.StopListening();
                         break;
-                    case "test":
+                    case "Test":
                         control.ContentInput -= OnContentInput;
                         break;
                     default:

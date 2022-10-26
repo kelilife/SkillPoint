@@ -8,13 +8,13 @@ namespace KeLi.SkillPoint
     {
         internal static void Main()
         {
-            Console.Title = "Skill Point";
+            Console.Title = nameof(SkillPoint);
             Console.WindowWidth = 100;
             Console.WindowHeight = 25;
 
             try
             {
-                TestDemo();
+                new EventUsage().ShowResult();
             }
             catch (Exception ex)
             {
@@ -22,11 +22,6 @@ namespace KeLi.SkillPoint
             }
 
             Console.ReadKey();
-        }
-
-        internal static void TestDemo()
-        {
-            new EventUsage().ShowResult();
         }
     }
 }

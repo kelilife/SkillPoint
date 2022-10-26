@@ -26,6 +26,7 @@ namespace KeLi.SkillPoint.Usages
         {
             return nameof(Hello);
         }
+
         public void Output(string name)
         {
             Console.WriteLine(name);
@@ -46,46 +47,42 @@ namespace KeLi.SkillPoint.Usages
         {
         }
 
-        public override IMessage Invoke(IMessage msg)
+        public override IMessage Invoke(IMessage message)
         {
-            if (msg is IConstructionCallMessage ctorMsg)
+            if (message is IConstructionCallMessage callMessage)
             {
-                var returnMsg = InitializeServerObject(ctorMsg);
+                var result = InitializeServerObject(callMessage);
 
-                SetStubData(this, returnMsg.ReturnValue);
+                SetStubData(this, result.ReturnValue);
 
-                return returnMsg;
+                return result;
             }
 
-            else if (msg is IMethodCallMessage methodMsg)
+            if (message is not IMethodCallMessage methodMsg)
+                return null;
+
+            try
             {
-                IMessage message;
+                Console.Write("Before: ");
+                Console.WriteLine(methodMsg.MethodName);
 
-                try
-                {
-                    Console.Write("Before: ");
-                    Console.WriteLine(methodMsg.MethodName);
+                var args = methodMsg.Args;
+                var result = methodMsg.MethodBase.Invoke(GetUnwrappedServer(), args);
 
-                    object[] args = methodMsg.Args;
-                    object result = methodMsg.MethodBase.Invoke(GetUnwrappedServer(), args);
+                if (result is not null)
+                    Console.WriteLine(result);
 
-                    if (result != null)
-                        Console.WriteLine(result);
+                Console.Write("After: ");
+                Console.WriteLine(methodMsg.MethodName);
 
-                    Console.Write("After: ");
-                    Console.WriteLine(methodMsg.MethodName);
-
-                    message = new ReturnMessage(result, args, args.Length, methodMsg.LogicalCallContext, methodMsg);
-                }
-                catch (Exception e)
-                {
-                    message = new ReturnMessage(e, methodMsg);
-                }
-
-                return message;
+                message = new ReturnMessage(result, args, args.Length, methodMsg.LogicalCallContext, methodMsg);
+            }
+            catch (Exception e)
+            {
+                message = new ReturnMessage(e, methodMsg);
             }
 
-            return null;
+            return message;
         }
     }
 }

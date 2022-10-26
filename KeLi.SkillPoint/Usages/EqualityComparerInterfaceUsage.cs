@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace KeLi.SkillPoint.Usages
 {
-    internal class IEqualityComparerUsage : IAnalyzers
+    internal class EqualityComparerInterfaceUsage : IAnalyzers
     {
         public void ShowResult()
         {
@@ -16,47 +16,41 @@ namespace KeLi.SkillPoint.Usages
 
         internal void Test1()
         {
-            var data1 = GetTestData1();
+            var comparer = new AppleComparer();
 
-            data1.GroupBy(g => g.Id, new AppleComparer()).ToDictionary(k => k.Key, v => v, new AppleComparer());
-
-            var data2 = GetTestData2();
-
-            data2.GroupBy(g => g.Id, new AppleComparer()).ToDictionary(k => k.Key, v => v, new AppleComparer());
+            GetFruit1().GroupBy(g => g.Id, comparer).ToDictionary(k => k.Key, v => v, comparer);
+            GetFruit2().GroupBy(g => g.Id, comparer).ToDictionary(k => k.Key, v => v, comparer);
         }
 
         internal void Test2()
         {
-            var data1 = GetTestData1();
+            var comparer = new AppleComparer();
 
-            data1.ToDictionary(k => k.Id, v => v, new AppleComparer());
-
-            var data2 = GetTestData2();
-
-            data2.ToDictionary(k => k.Id, v => v, new AppleComparer());
+            GetFruit1().ToDictionary(k => k.Id, v => v, comparer);
+            GetFruit2().ToDictionary(k => k.Id, v => v, comparer);
         }
 
-        private List<Fruit> GetTestData1()
+        private static List<Fruit> GetFruit1()
         {
             return new List<Fruit>
             {
-                new Fruit(new Apple(1)),
-                new Fruit(new Apple(2)),
-                new Fruit(new Apple(3)),
-                new Fruit(new Apple(4)),
-                new Fruit(new Apple(5))
+                new(new Apple(1)),
+                new(new Apple(2)),
+                new(new Apple(3)),
+                new(new Apple(4)),
+                new(new Apple(5))
             };
         }
 
-        private List<Fruit> GetTestData2()
+        private static List<Fruit> GetFruit2()
         {
             return new List<Fruit>
             {
-                new Fruit(new Apple(1)),
-                new Fruit(new Apple(2)),
-                new Fruit(new Apple(1)),
-                new Fruit(new Apple(4)),
-                new Fruit(new Apple(5))
+                new(new Apple(1)),
+                new(new Apple(2)),
+                new(new Apple(1)),
+                new(new Apple(4)),
+                new(new Apple(5))
             };
         }
 

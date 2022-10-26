@@ -11,49 +11,49 @@ namespace KeLi.SkillPoint.Tests
         /// <summary>
         ///     Readonly property, the class inner can modify it.
         /// </summary>
-        internal static List<int> Uv1s { get; private set; }
+        internal static List<int> Collection1 { get; private set; }
 
         /// <summary>
         ///     Readonly property, no area can modify it.
         /// </summary>
 
         // ReSharper disable once UnassignedGetOnlyAutoProperty
-        internal static List<int> Uv2s { get; }
+        internal static List<int> Collection2 { get; }
 
         /// <summary>
         ///     Readonly property, the class inner can modify it.
         /// </summary>
-        internal static List<int> Uv3s { get; private set; } = new List<int>();
+        internal static List<int> Collection3 { get; private set; } = new();
 
         /// <summary>
         ///     Readonly property, init it and no area can modify it.
         /// </summary>
-        internal static List<int> Uv4s { get; } = new List<int>();
+        internal static List<int> Collection4 { get; } = new();
 
         /// <summary>
         ///     Readonly property, init it and no area can modify it.
         /// </summary>
-        internal static List<int> Uv5s => new List<int>();
+        internal static List<int> Collection5 => new();
 
         /// <summary>
         ///     Write only property, no area can read it.
         /// </summary>
-        internal static List<int> Uv6s { private get; set; }
+        internal static List<int> Collection6 { private get; set; }
 
         /// <summary>
         ///     Write only property, init it and the class inner can read it.
         /// </summary>
-        internal static List<int> Uv7s { private get; set; } = new List<int>();
+        internal static List<int> Collection7 { private get; set; } = new();
 
         /// <summary>
         ///     It can get or set value.
         /// </summary>
-        internal static List<int> Uv8s { get; set; }
+        internal static List<int> Collection8 { get; set; }
 
         /// <summary>
         ///     It can get or set value and init value.
         /// </summary>
-        internal static List<int> Uv9s { get; set; } = new List<int>();
+        internal static List<int> Collection9 { get; set; } = new();
 
         /// <summary>
         ///     Shows property result.
@@ -69,27 +69,27 @@ namespace KeLi.SkillPoint.Tests
         /// </summary>
         internal static void TestPropertyMyClass()
         {
-            Uv1s = new List<int>();
+            Collection1 = new List<int>();
 
-            // Uvs2 = new List<int>();
-            Uv3s = new List<int>();
+            //Uvs2 = new List<int>();
+            Collection3 = new List<int>();
 
             // Uvs4 = new List<int>();
             // Uvs5 = new List<int>();
-            Uv6s = new List<int>();
-            Uv7s = new List<int>();
-            Uv8s = new List<int>();
-            Uv9s = new List<int>();
+            Collection6 = new List<int>();
+            Collection7 = new List<int>();
+            Collection8 = new List<int>();
+            Collection9 = new List<int>();
 
-            Console.WriteLine(Uv1s);
-            Console.WriteLine(Uv2s);
-            Console.WriteLine(Uv3s);
-            Console.WriteLine(Uv4s);
-            Console.WriteLine(Uv5s);
-            Console.WriteLine(Uv6s);
-            Console.WriteLine(Uv7s);
-            Console.WriteLine(Uv8s);
-            Console.WriteLine(Uv9s);
+            Console.WriteLine(Collection1);
+            Console.WriteLine(Collection2);
+            Console.WriteLine(Collection3);
+            Console.WriteLine(Collection4);
+            Console.WriteLine(Collection5);
+            Console.WriteLine(Collection6);
+            Console.WriteLine(Collection7);
+            Console.WriteLine(Collection8);
+            Console.WriteLine(Collection9);
         }
     }
 
@@ -108,20 +108,20 @@ namespace KeLi.SkillPoint.Tests
             // PropertyStudy.Uv3s = new List<int>();
             // PropertyStudy.Uv4s = new List<int>();
             // PropertyStudy.Uv5s = new List<int>();
-            PropertyTest.Uv6s = new List<int>();
-            PropertyTest.Uv7s = new List<int>();
-            PropertyTest.Uv8s = new List<int>();
-            PropertyTest.Uv9s = new List<int>();
-            Console.WriteLine(PropertyTest.Uv1s);
-            Console.WriteLine(PropertyTest.Uv2s);
-            Console.WriteLine(PropertyTest.Uv3s);
-            Console.WriteLine(PropertyTest.Uv4s);
-            Console.WriteLine(PropertyTest.Uv5s);
+            PropertyTest.Collection6 = new List<int>();
+            PropertyTest.Collection7 = new List<int>();
+            PropertyTest.Collection8 = new List<int>();
+            PropertyTest.Collection9 = new List<int>();
+            Console.WriteLine(PropertyTest.Collection1);
+            Console.WriteLine(PropertyTest.Collection2);
+            Console.WriteLine(PropertyTest.Collection3);
+            Console.WriteLine(PropertyTest.Collection4);
+            Console.WriteLine(PropertyTest.Collection5);
 
             // Console.WriteLine(PropertyStudy.Uv6s);
             // Console.WriteLine(PropertyStudy.Uv7s);
-            Console.WriteLine(PropertyTest.Uv8s);
-            Console.WriteLine(PropertyTest.Uv9s);
+            Console.WriteLine(PropertyTest.Collection8);
+            Console.WriteLine(PropertyTest.Collection9);
         }
     }
 }

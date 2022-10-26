@@ -6,46 +6,44 @@ namespace KeLi.SkillPoint.Usages
     {
         public void ShowResult()
         {
-            var a = 1;
-            var b = 2;
+            var number1 = 1;
+            var number2 = 2;
 
-            SwapNumByRef(ref a, ref b);
-            SwapNumByOut(out _, out _);
+            SwapNumberByRef(ref number1, ref number2);
+            SwapNumberByOut(out number1, out number2);
 
-            const int e = 1;
-            const int f = 2;
-            const int g = 3;
-            const bool h = true;
-
-            ShowInputParams<object>(e, f, g, h);
+            ShowInputParameters<object>(1, 3, 2, 5);
         }
 
-        private static void SwapNumByRef(ref int a, ref int b)
+        private static void SwapNumberByRef(ref int number1, ref int number2)
         {
-            var temp = a;
+            var tempNumber = number1;
 
-            a = b;
-            b = temp;
+            number1 = number2;
+            number2 = tempNumber;
         }
 
-        private static void SwapNumByOut(out int a, out int b)
+        private static void SwapNumberByOut(out int number1, out int number2)
         {
-            a = 1;
-            b = 2;
+            number1 = 5;
+            number2 = 3;
 
-            var temp = a;
+            var tempNumber = number1;
 
-            a = b;
-            b = temp;
+            number1 = number2;
+            number2 = tempNumber;
         }
 
-        private static void ShowInputParams<T>(params T[] ts)
+        private static void ShowInputParameters<T>(params T[] parameters)
         {
-            if (ts == null || ts.Length <= 0)
+            if (parameters is null)
                 return;
 
-            foreach (var t in ts)
-                Console.Write(t + " ");
+            if (parameters.Length <= 0)
+                return;
+
+            foreach (var parameter in parameters)
+                Console.Write(parameter + " ");
         }
     }
 }

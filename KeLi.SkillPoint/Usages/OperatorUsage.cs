@@ -6,11 +6,11 @@ namespace KeLi.SkillPoint.Usages
     {
         public void ShowResult()
         {
-            var a = new Student(80, 70);
-            var b = new Student(85, 83);
-            var c = a + b;
+            var student1 = new Student(80, 70);
+            var student2 = new Student(85, 83);
+            var student3 = student1 + student2;
 
-            Console.WriteLine(c);
+            Console.WriteLine(student3);
         }
 
         internal class Student
@@ -25,14 +25,14 @@ namespace KeLi.SkillPoint.Usages
 
             internal int Math { get; set; }
 
-            public static Student operator +(Student a, Student b)
+            public static Student operator +(Student student1, Student student2)
             {
-                return new Student(a.Chinese + b.Chinese, a.Math + b.Math);
+                return new Student(student1.Chinese + student2.Chinese, student1.Math + student2.Math);
             }
 
-            public static implicit operator int(Student s)
+            public static implicit operator int(Student student)
             {
-                return s.Chinese + s.Math;
+                return student.Chinese + student.Math;
             }
         }
     }

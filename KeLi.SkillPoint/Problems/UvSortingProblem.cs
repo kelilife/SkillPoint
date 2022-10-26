@@ -8,53 +8,47 @@ namespace KeLi.SkillPoint.Problems
     {
         public void ShowResult()
         {
-            var uvs = new List<Uv> { new Uv(11, 10), new Uv(8, 6), new Uv(8, 9), new Uv(7, 11) };
+            var uvs = new List<Uv>
+            {
+                new(11, 10),
+                new(8, 6),
+                new(8, 9),
+                new(7, 11)
+            };
 
+            // Solution 1.
             Sort(uvs);
+
+            // Solution 2.
             uvs.Sort(new UvCompare());
         }
 
-        internal static List<Uv> Sort(List<Uv> uvs)
+        internal List<Uv> Sort(List<Uv> uvs)
         {
-            List<Uv> results;
+            if (uvs is null)
+                return new List<Uv>();
 
-            if (uvs == null || uvs.Count == 0)
-                results = new List<Uv>();
+            if (!uvs.Any())
+                return new List<Uv>();
 
-            else
-                results = uvs.OrderBy(o => o.U).ThenBy(t => t.V).ToList();
-
-            return results;
+            return uvs.OrderBy(o => o.U).ThenBy(t => t.V).ToList();
         }
 
         internal class UvCompare : IComparer<Uv>
         {
-            public int Compare(Uv p1, Uv p2)
+            public int Compare(Uv uv1, Uv uv2)
             {
-                int result;
-
-                if (p1 == null || p2 == null)
+                if (uv1 is null || uv2 is null)
                     throw new Exception();
 
-                if (p1.U.CompareTo(p2.U) > 0)
-                    result = 1;
-
-                else if (p1.U.CompareTo(p2.U) == 0)
+                return uv1.U.CompareTo(uv2.U) switch
                 {
-                    if (p1.V.CompareTo(p2.V) > 0)
-                        result = 1;
-
-                    else if (p1.V.CompareTo(p2.V) == 0)
-                        result = 0;
-
-                    else
-                        result = -1;
-                }
-
-                else
-                    result = -1;
-
-                return result;
+                    > 0 => 1,
+                    0 when uv1.V.CompareTo(uv2.V) > 0 => 1,
+                    0 when uv1.V.CompareTo(uv2.V) == 0 => 0,
+                    0 => -1,
+                    _ => -1
+                };
             }
         }
 
