@@ -78,6 +78,7 @@
     <Compile Include="Usages\KeyedCollectionUsage.cs" />
     <Compile Include="Problems\UvSortingProblem.cs" />
     <Compile Include="Problems\PrecisionMissingProblem.cs" />
+    <Compile Include="Usages\ObjectComparisonUsage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

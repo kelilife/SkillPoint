@@ -33,7 +33,7 @@ namespace KeLi.SkillPoint.Usages
         }
     }
 
-    public class AopProxyAttribute : ProxyAttribute
+    internal class AopProxyAttribute : ProxyAttribute
     {
         public override MarshalByRefObject CreateInstance(Type serverType)
         {
@@ -41,7 +41,7 @@ namespace KeLi.SkillPoint.Usages
         }
     }
 
-    public class AopRealProxy : RealProxy
+    internal class AopRealProxy : RealProxy
     {
         public AopRealProxy(Type serverType) : base(serverType)
         {

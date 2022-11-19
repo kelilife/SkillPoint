@@ -14,7 +14,7 @@ namespace KeLi.SkillPoint
 
             try
             {
-                new EventUsage().ShowResult();
+                new ObjectComparisonUsage().ShowResult();
             }
             catch (Exception ex)
             {
