@@ -123,24 +123,36 @@ namespace KeLi.SkillPoint.Usages
         {
             Console.WriteLine(nameof(Test9));
 
-            double number1 = 9.0;
-            float number2 = 9.0f;
+            object obj = 9.0f;
+            double number = 9.0;
 
-            Console.WriteLine(ReferenceEquals(number1, number2)); // False
-            Console.WriteLine(number1.Equals(number2)); // True
-            Console.WriteLine(number1 == number2); // True
+            Console.WriteLine(ReferenceEquals(obj, number)); // False
+            Console.WriteLine(obj.Equals(number)); // False
+            //Console.WriteLine(obj == number);
         }
 
         public static void Test10()
         {
             Console.WriteLine(nameof(Test10));
 
-            object obj = 10.0;
-            object number = 10.0f;
+            double number1 = 10.0;
+            float number2 = 10.0f;
 
-            Console.WriteLine(ReferenceEquals(obj, number)); // False
-            Console.WriteLine(obj.Equals(number)); // False
-            Console.WriteLine(obj == number); // False
+            Console.WriteLine(ReferenceEquals(number1, number2)); // False
+            Console.WriteLine(number1.Equals(number2)); // True
+            Console.WriteLine(number1 == number2); // True
+        }
+
+        public static void Test11()
+        {
+            Console.WriteLine(nameof(Test11));
+
+            object obj1 = 11.0;
+            object obj2 = 11.0f;
+
+            Console.WriteLine(ReferenceEquals(obj1, obj2)); // False
+            Console.WriteLine(obj1.Equals(obj2)); // False
+            Console.WriteLine(obj1 == obj2); // False
         }
     }
 }
